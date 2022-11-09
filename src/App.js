@@ -15,6 +15,7 @@ import { PhotoCamera } from '@material-ui/icons';
 import useStyles from './sytles';
 function App() {
   const classes = useStyles();
+  const cards = [1, 2, 3, 4, 5, 6, 7, 8, 99];
   return (
     <>
       <CssBaseline>
@@ -61,6 +62,38 @@ function App() {
               </div>
             </Container>
           </div>
+          <Container className={classes.cardGrid} maxWidth='md'>
+            <Grid container spacing={4}>
+              {cards.map((index) => (
+                <Grid item key={index}>
+                  <Card className={classes.card}>
+                    <CardMedia
+                      className={classes.CardMedia}
+                      image='https://source.unsplash.com/random'
+                      title='Image Title'
+                    />
+                    <CardContent className={classes.CardContent}>
+                      <Typography variant='h5' gutterBottom>
+                        Heading
+                      </Typography>
+                      <Typography variant='h5' gutterBottom>
+                        This is media card. You can use this section to describe
+                        this content
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button size='small' color='primary' variant='outlined'>
+                        View
+                      </Button>
+                      <Button size='small' color='secondary' variant='outlined'>
+                        Edit
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
         </main>
       </CssBaseline>
     </>
