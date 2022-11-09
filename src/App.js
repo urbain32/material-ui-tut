@@ -15,7 +15,7 @@ import { PhotoCamera } from '@material-ui/icons';
 import useStyles from './sytles';
 function App() {
   const classes = useStyles();
-  const cards = [1, 2, 3, 4, 5, 6, 7, 8, 99];
+  const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9,0];
   return (
     <>
       <CssBaseline>
@@ -62,10 +62,20 @@ function App() {
               </div>
             </Container>
           </div>
-          <Container className={classes.cardGrid} maxWidth='md'>
+          <Container
+            className={classes.cardGrid}
+            maxWidth='md'
+            sx={{
+              bgcolor: 'background.paper',
+              boxShadow: 1,
+              borderRadius: 2,
+              p: 2,
+              minWidth: 300,
+            }}
+          >
             <Grid container spacing={4}>
               {cards.map((index) => (
-                <Grid item key={index}>
+                <Grid item key={index} xs={12} sm={6} md={4}>
                   <Card className={classes.card}>
                     <CardMedia
                       className={classes.CardMedia}
@@ -82,10 +92,10 @@ function App() {
                       </Typography>
                     </CardContent>
                     <CardActions>
-                      <Button size='small' color='primary' variant='outlined'>
+                      <Button size='small' color='primary'>
                         View
                       </Button>
-                      <Button size='small' color='secondary' variant='outlined'>
+                      <Button size='small' color='secondary'>
                         Edit
                       </Button>
                     </CardActions>
