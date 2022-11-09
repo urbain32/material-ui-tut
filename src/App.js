@@ -12,13 +12,7 @@ import {
   Button,
 } from '@material-ui/core';
 import { PhotoCamera } from '@material-ui/icons';
-import { makeStyles } from '@material-ui/core/styles';
-const useStyles = makeStyles((theme) => ({
-  container: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-  },
-}));
+import useStyles from './sytles';
 function App() {
   const classes = useStyles();
   return (
@@ -26,7 +20,7 @@ function App() {
       <CssBaseline>
         <AppBar position='relative'>
           <Toolbar>
-            <PhotoCamera />
+            <PhotoCamera className={classes.icon} />
             <Typography variant='h6'>Photo Album</Typography>
           </Toolbar>
         </AppBar>
@@ -51,7 +45,7 @@ function App() {
                 contents, the creator, etc. Make it short and sweet, but not too
                 short so folks don&apos;t simply skip over it entirely.
               </Typography>
-              <div>
+              <div className={classes.button}>
                 <Grid container spacing={2} justifyContent='center'>
                   <Grid item>
                     <Button variant='contained' color='primary'>
